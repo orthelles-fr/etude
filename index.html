@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Étude sur les douleurs de la main chez les femmes : un entretien de 30 minutes ou un questionnaire anonyme de 5 minutes.">
+<meta name="robots" content="noindex">
+<title>Étude douleurs de la main</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout : bandeau pétrole en ouverture et en clôture, contenu centré sur 720px, cartes en grille égale */
+:root {
+  --petrole: #0F4C5C;
+  --cuivre: #C27C4E;
+  --cuivre-clair: #D9946A;
+  --ivoire: #F3EEE6;
+  --sable: #E8D5C4;
+  --bg: #F3EEE6;
+  --fg: #0F4C5C;
+  --muted: #3E6F7B;
+  --card: #FBF8F3;
+  --line: #E8D5C4;
+  --band-bg: #0F4C5C;
+  --band-fg: #F3EEE6;
+  --band-accent: #D9946A;
+  --btn-bg: #0F4C5C;
+  --btn-fg: #F3EEE6;
+  --btn-alt-bg: #0F4C5C;
+  --btn-alt-fg: #F3EEE6;
+  --ou-bg: #F3EEE6;
+  --font: "Jost", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B3640; --fg: #F3EEE6; --muted: #C9D9DC; --card: #0F4C5C; --line: #1F6273;
+    --band-bg: #082A32; --band-fg: #F3EEE6; --band-accent: #D9946A;
+    --btn-bg: #F3EEE6; --btn-fg: #0F4C5C; --btn-alt-bg: #D9946A; --btn-alt-fg: #082A32;
+    --ou-bg: #0B3640; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B3640; --fg: #F3EEE6; --muted: #C9D9DC; --card: #0F4C5C; --line: #1F6273;
+  --band-bg: #082A32; --band-fg: #F3EEE6; --band-accent: #D9946A;
+  --btn-bg: #F3EEE6; --btn-fg: #0F4C5C; --btn-alt-bg: #D9946A; --btn-alt-fg: #082A32;
+  --ou-bg: #0B3640; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 17px; line-height: 1.5; font-weight: 400; }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-weight: 500; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.band { background: var(--band-bg); color: var(--band-fg); }
+.hero .wrap { padding-block: 64px 56px; display: grid; gap: 20px; }
+.eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-accent); font-weight: 500; }
+.hero h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.12; letter-spacing: -.01em; }
+.hero h1 em { font-style: normal; color: var(--band-accent); }
+.hero p.lead { font-size: 19px; font-weight: 300; max-width: 56ch; opacity: .95; }
+.brace { width: 88px; height: 14px; color: var(--band-accent); }
+
+section.block .wrap { padding-block: 56px 0; display: grid; gap: 22px; }
+section.block h2 { font-size: 28px; color: var(--fg); }
+.intro { font-size: 18px; color: var(--muted); }
+.intro strong { color: var(--fg); font-weight: 600; }
+
+.choices { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card .ico { width: 34px; height: 34px; color: var(--cuivre); }
+.card h3 { font-size: 21px; }
+.card .dur { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.card p { color: var(--muted); }
+.card .btn { margin-top: auto; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; border-radius: 10px; font-weight: 500; font-size: 17px; text-decoration: none; background: var(--btn-bg); color: var(--btn-fg); transition: transform .15s ease, opacity .15s ease; text-align: center; }
+.btn.alt { background: var(--btn-alt-bg); color: var(--btn-alt-fg); }
+.btn:hover { opacity: .9; transform: translateY(-1px); }
+.btn.off { background: transparent; color: var(--muted); border: 1px dashed var(--line); cursor: default; }
+.btn.off:hover { opacity: 1; transform: none; }
+.btn:focus-visible, summary:focus-visible { outline: 3px solid var(--cuivre-clair); outline-offset: 3px; }
+.ou { align-self: center; width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line); background: var(--ou-bg); display: grid; place-items: center; font-weight: 500; color: var(--cuivre); font-size: 16px; }
+.note { font-size: 15px; color: var(--muted); font-style: italic; text-align: center; }
+
+.quote { border-left: 2px solid var(--cuivre); padding: 4px 0 4px 22px; font-size: 18px; max-width: 62ch; }
+.quote strong { font-weight: 500; }
+
+.guarantees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.g { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.g .ico { width: 28px; height: 28px; color: var(--cuivre); }
+.g h3 { font-size: 18px; }
+.g p { font-size: 15px; color: var(--muted); }
+
+details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 500; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary .plus { color: var(--cuivre); font-size: 22px; line-height: 1; transition: transform .2s ease; }
+details[open] summary .plus { transform: rotate(45deg); }
+.legal { overflow-x: auto; padding-bottom: 18px; }
+.legal dl { margin: 0; display: grid; grid-template-columns: 200px 1fr; font-size: 15px; }
+.legal dt, .legal dd { padding: 12px 0; border-top: 1px solid var(--line); margin: 0; }
+.legal dt { font-weight: 600; padding-right: 16px; }
+.legal dd { color: var(--muted); }
+.legal a { color: var(--fg); }
+
+.closing { margin-top: 64px; }
+.closing .wrap { padding-block: 52px; display: grid; gap: 12px; justify-items: start; }
+.closing h2 { font-size: clamp(24px, 4vw, 30px); max-width: 30ch; }
+.closing .sign { color: var(--band-accent); font-weight: 400; font-size: 18px; }
+
+@media (max-width: 640px) {
+  .choices { grid-template-columns: 1fr; }
+  .ou { justify-self: center; }
+  .guarantees { grid-template-columns: 1fr; }
+  .legal dl { grid-template-columns: 1fr; }
+  .legal dd { border-top: 0; padding-top: 0; }
+  .hero .wrap { padding-block: 44px 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn, summary .plus { transition: none; } }
+html, body { margin: 0; padding: 0; }
+</style>
+</head>
+<body>
+<header class="band hero">
+  <div class="wrap">
+    <span class="eyebrow">Étude sur les douleurs de la main chez les femmes</span>
+    <h1>Mal à la main ou au poignet&nbsp;: <em>votre expérience compte</em></h1>
+    <svg class="brace" viewBox="0 0 88 14" fill="none" aria-hidden="true"><path d="M2 3 C 14 12, 30 12, 44 7 C 58 12, 74 12, 86 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <p class="lead">Cette étude donne la parole aux femmes de 40&nbsp;ans et plus qui ont mal à la main&nbsp;: à la base du pouce, au poignet, ou le long du pouce. Avec ou sans orthèse, que vous ayez consulté ou non&nbsp;: votre quotidien, ce que vous avez essayé, et ce que vous en retenez.</p>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="participer">
+    <div class="wrap">
+      <h2>Comment participer&nbsp;?</h2>
+      <p class="intro"><strong>Deux possibilités, au choix</strong> : l’une, l’autre, ou les deux.</p>
+      <div class="choices">
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H9l-5 4z"/></svg>
+          <span class="dur">30 minutes</span>
+          <h3>Échanger avec moi</h3>
+          <p>Par téléphone ou en visio, au moment qui vous convient. Laissez votre e-mail en une minute, je vous recontacte pour fixer un rendez-vous.</p>
+          <a class="btn alt" href="https://tally.so/r/rDD8R5" target="_blank" rel="noopener">Je participe à un entretien <span aria-hidden="true">→</span></a>
+        </article>
+        <div class="ou" aria-hidden="true">ou</div>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+          <span class="dur">5 minutes</span>
+          <h3>Répondre au questionnaire</h3>
+          <p>En ligne, depuis votre téléphone ou votre ordinateur. Entièrement anonyme&nbsp;: ni nom, ni e-mail.</p>
+          <a class="btn" href="https://tally.so/r/9NNAyG" target="_blank" rel="noopener">Je réponds au questionnaire <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+      <p class="note">Il n’y a ni bonne ni mauvaise réponse&nbsp;: seule compte votre expérience.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Qui mène cette étude&nbsp;?</h2>
+      <p class="quote">Je m’appelle <strong>Corinne Tiennot</strong>. Je porte un projet consacré à la santé des femmes après 40&nbsp;ans, incubé au Perqo, programme d’accompagnement de la Région Île-de-France. Avant de concevoir quoi que ce soit, je veux comprendre ce que vivent les femmes concernées.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Vos données sont protégées</h2>
+      <div class="guarantees">
+        <div class="g">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>
+          <h3>Anonymat</h3>
+          <p>Aucun nom dans les réponses.</p>
+        </div>
+        <div class="g">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <h3>Suppression</h3>
+          <p>E-mail effacé après l’entretien, sauf si vous souhaitez être recontactée.</p>
+        </div>
+        <div class="g">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          <h3>Confidentialité</h3>
+          <p>Notes sous un code, audio effacé sous 7 jours.</p>
+        </div>
+      </div>
+      <details id="rgpd">
+        <summary>En savoir plus sur vos données et vos droits <span class="plus" aria-hidden="true">+</span></summary>
+        <div class="legal">
+          <dl>
+            <dt>Qui est responsable</dt><dd>Corinne Tiennot, porteuse du projet. Contact&nbsp;: contact@orthelles.com</dd>
+            <dt>Pourquoi</dt><dd>Comprendre l’expérience des femmes qui ont mal à la main ou au poignet, dans le cadre d’une étude des besoins. Il ne s’agit pas d’une recherche médicale, et aucun avis médical n’est donné.</dd>
+            <dt>Ce qui est recueilli</dt><dd>Questionnaire&nbsp;: vos réponses, sans aucune information permettant de vous identifier. Entretien&nbsp;: votre e-mail, ce que vous choisissez de raconter sur votre douleur et votre quotidien, et, seulement si vous l’acceptez, l’enregistrement audio de l’échange. Ces informations concernent votre santé&nbsp;: elles sont protégées en conséquence.</dd>
+            <dt>Sur quelle base</dt><dd>Votre consentement explicite, que vous pouvez retirer à tout moment, sans avoir à vous justifier.</dd>
+            <dt>Qui y a accès</dt><dd>Moi seule. Vos données ne sont ni vendues ni transmises. Les résultats ne sont diffusés que sous forme de synthèse anonyme.</dd>
+            <dt>Où elles sont conservées</dt><dd>Dans des outils en ligne, dont certains sont hébergés hors de l’Union européenne, auprès de prestataires qui s’engagent à respecter le RGPD.</dd>
+            <dt>Combien de temps</dt><dd>Votre e-mail&nbsp;: supprimé après l’entretien, au plus tard un mois après votre inscription. Si vous acceptez d’être recontactée en décembre, il est conservé jusqu’au 31&nbsp;mars&nbsp;2027 au plus tard. L’enregistrement audio&nbsp;: effacé au plus tard 7&nbsp;jours après l’entretien. Les notes d’entretien, sous un code&nbsp;: jusqu’à la fin de l’étude, au plus tard le 31&nbsp;mars&nbsp;2027, puis supprimées.</dd>
+            <dt>Vos droits</dt><dd>Accès, rectification, suppression, retrait du consentement&nbsp;: écrivez à l’adresse de contact. Les réponses au questionnaire étant anonymes, elles ne peuvent pas vous être rattachées. Vous pouvez aussi adresser une réclamation à la CNIL&nbsp;: <a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>.</dd>
+            <dt>Conditions</dt><dd>Étude réservée aux personnes majeures. L’entretien n’est enregistré qu’avec votre accord explicite, que vous pouvez refuser sans renoncer à l’entretien. L’enregistrement reste sur un seul appareil, n’est jamais mis en ligne ni transcrit par un service extérieur, et personne d’autre que moi ne l’écoute. Aucune vidéo.</dd>
+          </dl>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="band closing">
+  <div class="wrap">
+    <h2>Merci pour le temps que vous voudrez bien y consacrer.</h2>
+    <span class="sign">Corinne Tiennot</span>
+  </div>
+</footer>
+</body>
+</html>
