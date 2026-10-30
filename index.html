@@ -8,43 +8,44 @@
 <title>Étude douleurs de la main</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout : bandeau pétrole en ouverture et en clôture, contenu centré sur 720px, cartes en grille égale */
+/* Layout : bandeau bleu marine en ouverture et en clôture, contenu centré sur 720px, cartes en grille égale */
 :root {
-  --petrole: #0F4C5C;
-  --cuivre: #C27C4E;
-  --cuivre-clair: #D9946A;
-  --ivoire: #F3EEE6;
-  --sable: #E8D5C4;
-  --bg: #F3EEE6;
-  --fg: #0F4C5C;
-  --muted: #3E6F7B;
-  --card: #FBF8F3;
-  --line: #E8D5C4;
-  --band-bg: #0F4C5C;
-  --band-fg: #F3EEE6;
-  --band-accent: #D9946A;
-  --btn-bg: #0F4C5C;
-  --btn-fg: #F3EEE6;
-  --btn-alt-bg: #0F4C5C;
-  --btn-alt-fg: #F3EEE6;
-  --ou-bg: #F3EEE6;
-  --font: "Jost", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  /* Palette de l'étude, harmonisée avec les affiches (logos Perqo et Région) */
+  --petrole: #26387D;
+  --cuivre: #3A57B0;
+  --cuivre-clair: #8FA6DE;
+  --ivoire: #F4F6FB;
+  --sable: #E3E9F5;
+  --bg: #FFFFFF;
+  --fg: #26387D;
+  --muted: #4A5A8C;
+  --card: #F4F6FB;
+  --line: #E3E9F5;
+  --band-bg: #E3E9F5;
+  --band-fg: #26387D;
+  --band-accent: #3A57B0;
+  --btn-bg: #26387D;
+  --btn-fg: #FFFFFF;
+  --btn-alt-bg: #3A57B0;
+  --btn-alt-fg: #FFFFFF;
+  --ou-bg: #FFFFFF;
+  --font: "Montserrat", "Helvetica Neue", Arial, system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0B3640; --fg: #F3EEE6; --muted: #C9D9DC; --card: #0F4C5C; --line: #1F6273;
-    --band-bg: #082A32; --band-fg: #F3EEE6; --band-accent: #D9946A;
-    --btn-bg: #F3EEE6; --btn-fg: #0F4C5C; --btn-alt-bg: #D9946A; --btn-alt-fg: #082A32;
-    --ou-bg: #0B3640; color-scheme: dark;
+    --bg: #141D45; --fg: #F4F6FB; --muted: #C3CDEA; --card: #1F2B63; --line: #2E3C7A;
+    --band-bg: #0F1638; --band-fg: #FFFFFF; --band-accent: #A9BCEB;
+    --btn-bg: #F4F6FB; --btn-fg: #26387D; --btn-alt-bg: #A9BCEB; --btn-alt-fg: #0F1638;
+    --ou-bg: #141D45; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0B3640; --fg: #F3EEE6; --muted: #C9D9DC; --card: #0F4C5C; --line: #1F6273;
-  --band-bg: #082A32; --band-fg: #F3EEE6; --band-accent: #D9946A;
-  --btn-bg: #F3EEE6; --btn-fg: #0F4C5C; --btn-alt-bg: #D9946A; --btn-alt-fg: #082A32;
-  --ou-bg: #0B3640; color-scheme: dark;
+  --bg: #141D45; --fg: #F4F6FB; --muted: #C3CDEA; --card: #1F2B63; --line: #2E3C7A;
+  --band-bg: #0F1638; --band-fg: #FFFFFF; --band-accent: #A9BCEB;
+  --btn-bg: #F4F6FB; --btn-fg: #26387D; --btn-alt-bg: #A9BCEB; --btn-alt-fg: #0F1638;
+  --ou-bg: #141D45; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 17px; line-height: 1.5; font-weight: 400; }
@@ -122,10 +123,11 @@ html, body { margin: 0; padding: 0; }
 <body>
 <header class="band hero">
   <div class="wrap">
-    <span class="eyebrow">Étude sur les douleurs de la main chez les femmes</span>
-    <h1>Mal à la main ou au poignet&nbsp;: <em>votre expérience compte</em></h1>
+    <span class="eyebrow">OrthElles mène une étude · Santé des femmes</span>
+    <h1>Mal à la main, aux doigts ou au poignet&nbsp;: <em>votre expérience compte</em></h1>
     <svg class="brace" viewBox="0 0 88 14" fill="none" aria-hidden="true"><path d="M2 3 C 14 12, 30 12, 44 7 C 58 12, 74 12, 86 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    <p class="lead">Cette étude donne la parole aux femmes qui ont mal à la main&nbsp;: à la base du pouce, au poignet, ou le long du pouce. Avec ou sans orthèse, que vous ayez consulté ou non&nbsp;: votre quotidien, ce que vous avez essayé, et ce que vous en retenez.</p>
+    <p class="lead">Cette étude donne la parole aux femmes qui ont mal à la main&nbsp;: aux doigts, à la base du pouce, au poignet, ou le long du pouce. Avec ou sans orthèse, que vous ayez consulté ou non&nbsp;: votre quotidien, ce que vous avez essayé, et ce que vous en retenez.</p>
+    <p class="lead">Objectif&nbsp;: comprendre vos gênes et vos besoins, pour concevoir des réponses qui vous correspondent.</p>
   </div>
 </header>
 
@@ -208,5 +210,15 @@ html, body { margin: 0; padding: 0; }
     <span class="sign">Corinne Tiennot</span>
   </div>
 </footer>
+<script>
+/* Transmet la source du QR code (?source=...) aux formulaires Tally, pour compter les réponses par affiche */
+(function () {
+  var s = new URLSearchParams(window.location.search).get('source');
+  if (!s) return;
+  document.querySelectorAll('a[href^="https://tally.so/"]').forEach(function (a) {
+    var u = new URL(a.href); u.searchParams.set('source', s); a.href = u.toString();
+  });
+})();
+</script>
 </body>
 </html>
