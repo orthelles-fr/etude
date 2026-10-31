@@ -54,6 +54,8 @@ h1, h2, h3 { font-weight: 500; text-wrap: balance; margin: 0; }
 p { margin: 0; }
 
 .band { background: var(--band-bg); color: var(--band-fg); }
+/* En-tête : même dégradé de bleus que le bandeau des affiches */
+.hero { background: linear-gradient(110deg, #1B2A66 0%, #26387D 45%, #3A57B0 100%); color: #FFFFFF; --band-accent: #A9BCEB; }
 .hero .wrap { padding-block: 64px 56px; display: grid; gap: 20px; }
 .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-accent); font-weight: 500; }
 .hero h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.12; letter-spacing: -.01em; }
