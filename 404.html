@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Étude sur les douleurs de la main chez les femmes : un entretien de 30 minutes ou un questionnaire anonyme de 5 minutes.">
+<meta name="robots" content="noindex">
+<title>Étude douleurs de la main</title>
+<script>
+/* Adresses courtes : etude.orthelles.com/region renvoie vers la page de l'étude avec source=region.
+   Seuls les lettres minuscules, chiffres et tirets sont acceptés ; sinon, retour à la page d'accueil. */
+(function () {
+  var slug = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (/^[a-z0-9-]{1,40}$/.test(slug)) {
+    window.location.replace('/?source=' + slug);
+  } else {
+    window.location.replace('/');
+  }
+})();
+</script>
+</head>
+<body>
+<p><a href="/">Étude sur les douleurs de la main chez les femmes</a></p>
+</body>
+</html>

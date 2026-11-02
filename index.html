@@ -213,13 +213,19 @@ html, body { margin: 0; padding: 0; }
   </div>
 </footer>
 <script>
-/* Transmet la source du QR code (?source=...) aux formulaires Tally, pour compter les réponses par affiche */
+/* Transmet la source (?source=... ou adresse courte /region) aux formulaires Tally, pour compter les réponses par canal,
+   puis remet l'adresse propre etude.orthelles.com dans la barre du navigateur */
 (function () {
   var s = new URLSearchParams(window.location.search).get('source');
   if (!s) return;
+  s = s.toLowerCase();
+  if (!/^[a-z0-9-]{1,40}$/.test(s)) return;
   document.querySelectorAll('a[href^="https://tally.so/"]').forEach(function (a) {
     var u = new URL(a.href); u.searchParams.set('source', s); a.href = u.toString();
   });
+  if (window.history && window.history.replaceState) {
+    window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+  }
 })();
 </script>
 </body>
